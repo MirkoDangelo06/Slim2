@@ -58,4 +58,14 @@ class AlunniController
     return $response->withHeader("Content-type", "application/json")->withStatus(200);
   }
 
+
+  //--PER IL CREATE
+//curl -X POST http://localhost:8080/alunni -H "Content-Type: application/json" -d '{"nome": "guido", "cognome": "lauto"}'
+
+//--PER IL DELETE
+//curl -X POST http://localhost:8080/alunni/5
+
+//--PER L'UPDATE
+//curl -X PUT http://localhost:8080/alunni/3 -H "Content-Type: application/json" -d '{"nome": "GUIDO", "cognome": "LAUTO"}'
+
 }
