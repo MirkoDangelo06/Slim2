@@ -58,6 +58,45 @@ class AlunniController
     return $response->withHeader("Content-type", "application/json")->withStatus(200);
   }
 
+  public function deshendingOrder(Request $request, Response $response, $args){
+    $mysqli_connection = new MySQLi('my_mariadb', 'root', 'ciccio', 'scuola');
+    switch($args['cs']){
+      case 'N':
+      case 'n':
+        $result = $mysqli_connection->query("SELECT * FROM alunni ORDER BY alunni.nome DESC");
+        $results = $result->fetch_all(MYSQLI_ASSOC);
+        break;
+      case 'C':
+      case 'c':
+        $result = $mysqli_connection->query("SELECT * FROM alunni ORDER BY alunni.cognome DESC");
+        $results = $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    $response->getBody()->write(json_encode($results));
+    return $response->withHeader("Content-type", "application/json")->withStatus(200);
+  }
+
+  public function ashendingOrder(Request $request, Response $response, $args){
+    $mysqli_connection = new MySQLi('my_mariadb', 'root', 'ciccio', 'scuola');
+    switch($args['cs']){
+      case 'N':
+      case 'n':
+        $result = $mysqli_connection->query("SELECT * FROM alunni ORDER BY alunni.nome ASC");
+        $results = $result->fetch_all(MYSQLI_ASSOC);
+        break;
+      case 'C':
+      case 'c':
+        $result = $mysqli_connection->query("SELECT * FROM alunni ORDER BY alunni.cognome ASC");
+        $results = $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    $response->getBody()->write(json_encode($results));
+    return $response->withHeader("Content-type", "application/json")->withStatus(200);
+  }
+
+
+  
+
 
   //--PER IL CREATE
 //curl -X POST http://localhost:8080/alunni -H "Content-Type: application/json" -d '{"nome": "guido", "cognome": "lauto"}'

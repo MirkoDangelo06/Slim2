@@ -18,4 +18,11 @@ $app->delete('/alunni/{id:\d+}', "AlunniController:delete");
 
 $app->get('/alunni/search/{txt}', "AlunniController:filter");
 
+
+$app->get('/alunni/order/deshending/{cs:[NnCc]}', "AlunniController:deshendingOrder");
+
+$app->get('/alunni/order/ascending/{cs:[NnCc]}', "AlunniController:ashendingOrder");
+
+
+
 $app->run();
