@@ -39,7 +39,7 @@ class AlunniController
     $mysqli_connection = new MySQLi('my_mariadb', 'root', 'ciccio', 'scuola');
     $creation = $mysqli_connection->query("UPDATE `alunni` SET `nome`='$nome',`cognome`='$cognome' WHERE alunni.id = $args[id]");
 
-    return $response->withHeader("Content-type", "application/json")->withStatus(200);
+    return $response->withHeader("Content-type", "application/json")->withStatus(201);
   }
 
   public function delete(Request $request, Response $response, $args){
