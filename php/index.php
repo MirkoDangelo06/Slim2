@@ -16,4 +16,6 @@ $app->put('/alunni/{id:\d+}', "AlunniController:update");
 
 $app->delete('/alunni/{id:\d+}', "AlunniController:delete");
 
+$app->get('/alunni/search/{txt}', "AlunniController:filter");
+
 $app->run();
